@@ -1,0 +1,5 @@
+install using npx i package_name
+To start server "node server.js"
+
+nodemon server.js
+node server.js
