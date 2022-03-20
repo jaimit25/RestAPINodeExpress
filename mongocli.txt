@@ -1,0 +1,87 @@
+command "mongo" and "mongod"
+${ } -> replace your name 
+
+db(test) -> collection(users,comments) -> documents(...)
+
+"show dbs;" -> view dbs
+"use comments" -> new/use database
+"db" -> you will get to know which database you are working on
+"use ${databasename}" -> use the database
+"db.dropDatabase()" -> delete current database 
+
+
+//Collection related commands
+"show collections" -> to show collections
+"db.createCollection('comments')" -> create collection name
+"db.${collectionname}.drop()" -> to delete collection 
+
+
+//documents/rows commands
+
+->insert one document
+db.comments.insert({
+    'name':'jp',
+    'comment':'nice video',
+})
+
+->insert many document
+db.comments.insertMany([
+{
+    'name':'jps',
+    'comment':' video is good',
+},
+{
+    'name':'sp',
+    'comment':'good video',
+},
+])
+
+-> we can access any object/dpcument using its object id
+
+db.comments.find()  ->show the objects
+db.comments.find().pretty()  ->show the objects in good way
+
+-> to add Date
+db.comments.insert({
+    'name':'jp',
+    'comment':'nice video',
+    'date': new Date()
+})
+
+->search in a mongoDB
+db.comments.find({
+    name:'sps',
+    ..
+})
+
+->limit the outputs
+db.comments.find().pretty().limit(2)
+
+->count the number of rows/documents
+db.comments.find().count()
+
+
+->sort and get the documents (1: for increasing order and 2:for decreasing order)
+db.comments.find().sort({
+    'age':1
+}).pretty()
+
+->findOne function
+db.comments.findOne({
+    'name':'jp'
+})
+
+
+->update a row
+db.comments.update({
+    name:'jps'
+ },{
+        name:'jam eat'
+ })
+
+ ->if row doesnt exist then create a new one
+db.comments.update({
+    name:'jps'
+ },{
+        name:'jam eat'
+ },{upsert:true})

@@ -4,7 +4,7 @@ var app = express(); //convert express to app
 var fs = require("fs"); //file system module
 const http = require("http");
 app.use(express.json()); //for conversion
-
+const mongoose = require("mongoose");
 //USING NORMAL WAY
 // const PORT = 3000
 // const server = http.createServer( function (request, response) {
@@ -145,3 +145,9 @@ app.put("/api/courses/:id", (req, res) => {
   course.name = req.body.name;
   res.send(courses);
 });
+
+
+
+
+
+

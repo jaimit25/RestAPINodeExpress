@@ -1,0 +1,2 @@
+GET http://localhost:3000/api/courses/
+# we can use this to send get request to the server instead of postman
