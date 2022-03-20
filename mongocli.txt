@@ -85,3 +85,29 @@ db.comments.update({
  },{
         name:'jam eat'
  },{upsert:true})
+
+
+//mongo connection url for local database
+
+->using mongodb package
+ const url = 'mongodb://127.0.0.1:27017'
+
+->using mongoose 
+comman "npm install mongoose --save"
+
+const mongoose = require('mongoose')  //You can connect to MongoDB with the connect method:
+const url = 'mongodb://127.0.0.1:27017/database_name'
+mongoose.connect(url, { useNewUrlParser: true })
+
+const db = mongoose.connection  //Here’s how you can check whether the connection succeeds.
+db.once('open', _ => {
+  console.log('Database connected:', url)
+})
+
+db.on('error', err => {
+  console.error('connection error:', err)
+})
+
+
+//to create REST API with mongo
+https://flaviocopes.com/rest-api-express-mongodb/
